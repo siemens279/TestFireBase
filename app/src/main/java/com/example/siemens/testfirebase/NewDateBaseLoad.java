@@ -121,8 +121,10 @@ public class NewDateBaseLoad extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         switch (view.getId()) {
-                            case R.id.textViewName:
+                            case R.id.buttonDel:
                                 Log.d("MyLog", "Name "+position);
+                                //DatabaseReference itemRef = myRef.child(user.getUid()).child("Table").child(String.valueOf(position));
+                                //itemRef.removeValue();
                                 break;
                         }
                     }

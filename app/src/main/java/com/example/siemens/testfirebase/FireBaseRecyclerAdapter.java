@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,11 +22,13 @@ public class FireBaseRecyclerAdapter extends RecyclerView.Adapter<FireBaseRecycl
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView text;
+        public Button del;
 
         public ViewHolder(View v) {
             super(v);
             name = (TextView) v.findViewById(R.id.textViewName);
             text = (TextView) v.findViewById(R.id.textViewText);
+            del = (Button) v.findViewById(R.id.buttonDel);
         }
     }
 
@@ -53,12 +56,12 @@ public class FireBaseRecyclerAdapter extends RecyclerView.Adapter<FireBaseRecycl
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.name.setText(drugs.get(position).name);
         holder.text.setText(drugs.get(position).text);
-//        holder.name.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mOnItemClickListener.onItemClick(v, position);
-//            }
-//        });
+        holder.del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnItemClickListener.onItemClick(v, position);
+            }
+        });
     }
 
     // Возвращает размер данных (вызывается layout manager-ом)
